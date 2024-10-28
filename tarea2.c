@@ -14,6 +14,11 @@
 int fd_escritura;
 unsigned int block = 0;
 
+/*******************************************************************************
+ * Funciones de manejo de señal de interrupcion no es material de esta sesion
+ * se puede implementar el codigo sin el uso de manejo de interrupciones
+ */
+
 // Manejador de la señal SIGINT (Ctrl+C)
 void handle_sigint(int sig) {
     // Escribir el número de bloques en el archivo antes de salir
@@ -30,6 +35,15 @@ void handle_sigint(int sig) {
     exit(EXIT_SUCCESS);
 }
 
+//------------------------------------------------------------------------------
+
+/**
+ * @brief Main function
+ * 
+ * @param argc numero de argumentos (incluye el nombre del programa)
+ * @param argv puntero a cadenas de caracteres (los argumentos) 
+ * @return int 0=EXIT_SUCCES, 1=EXIT_FAILURE
+ */
 int main(int argc, char *argv[]) {
 
     int fd_lectura;
