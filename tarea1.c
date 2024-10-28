@@ -22,7 +22,7 @@ char buf2[]="ABCDEFGHIJ";
 int main(int argc, char *argv[]){
 
     int fd;
-    if( (fd=open("./files/prueba.txt",O_CREAT|O_TRUNC|O_WRONLY,S_IRUSR|S_IWUSR))<0) {
+    if( (fd=open("./files/prueba",O_CREAT|O_TRUNC|O_WRONLY,S_IRUSR|S_IWUSR))<0) {
         printf("\nError %d en open",errno);
         perror("\nError en open");
         exit(-1);
