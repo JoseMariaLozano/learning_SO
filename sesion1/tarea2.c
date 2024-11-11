@@ -50,6 +50,8 @@ int main(int argc, char *argv[]) {
 
     if(argc == 1) {
         fd_lectura = STDIN_FILENO;
+        printf("Debes pulsar ENTER para que se escriba la entrada (entrada estandar), pulse Ctrl+C para salir\n");
+
     } else {
         char *filename = argv[1];
         if ( (fd_lectura = open(filename, O_RDONLY)) < 0) { // abre el archivo con permisos de lectura solo
@@ -68,7 +70,6 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("Debes pulsar ENTER para que se escriba la entrada (entrada estandar), pulse Ctrl+C para salir\n");
 
     // Configurar el manejador de señal para Ctrl+C (SIGINT)
     signal(SIGINT, handle_sigint);
