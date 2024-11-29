@@ -16,7 +16,7 @@ int main(int argc, char** argv)
   for (size_t i = 1; i < argc; ++i) { 
     if (strcmp("bg", argv[i]) == 0) {
       argv[i] = argv[argc-1];
-      argv[argc-1] = "&"; 
+      argc[argc-1] = "&";
       break;
     }
   }
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
     exit(EXIT_FAILURE);
   }
 
-  printf("El proceso hijo termino con el estado de salida %d\n", &estado>>8);
+  printf("El proceso hijo termino con el estado de salida %d\n", (int)&estado>>8);
   return 0;
 
 }
