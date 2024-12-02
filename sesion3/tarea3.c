@@ -15,7 +15,8 @@ int main(int argc, char** argv)
   // Revisar si "bg" está entre los argumentos y eleminarlo
   for (size_t i = 1; i < argc; ++i) { 
     if (strcmp("bg", argv[i]) == 0) {
-      argv[i] = NULL; 
+      argv[i] = argv[argc-1];
+      argv[argc-1] = "&"; 
       break;
     }
   }
