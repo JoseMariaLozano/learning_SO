@@ -5,11 +5,17 @@
 
 int es_primo(int n) {
     int counter = 0;
-    if (n <= 1) return 0;
+    if (n <= 1) 
+        return 0;
+    
     for (int k = 2; k <= sqrt(n); ++k) {
-        if (n % k == 0) counter++;
+        if (n % k == 0) 
+            counter++;
     }
-    if(counter < 2) return 1;
+
+    if(counter > 0)
+        return 1;
+
     return 0;
 }
 
