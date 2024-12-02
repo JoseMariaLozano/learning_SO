@@ -12,12 +12,12 @@ catch_sigint(int sig)
     if(sig = SIGINT)
         sigint_count++;
 }
-
+// Añade
 static int 
 install_sigint(void)
 {
     struct sigaction act;
-    memset(&act, 0, sizeof(act)); // inicializar a 0 para asegurar acción by default
+    memset(&act, 0, sizeof(act)); // inicializar a 0 para asegurar acción by default 
     sigemptyset(&act.sa_mask);
     act.sa_handler = catch_sigint;
     act.sa_flags = 0;
