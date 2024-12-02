@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
         close(pipe1[0]); // Cerrar extremo de lectura
         dup2(pipe1[1], STDOUT_FILENO);
         close(pipe1[1]);
-        execlp("./esclavo", "./esclavo", argv[1], &argv[2][mitad - inicio + 1], NULL);
+        execlp("./worker", "./worker", argv[1], &argv[2][mitad - inicio + 1], NULL);
         perror("Error en execlp esclavo 1");
         exit(EXIT_FAILURE);
     }
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
         close(pipe2[0]); // Cerrar extremo de lectura
         dup2(pipe2[1], STDOUT_FILENO);
         close(pipe2[1]);
-        execlp("./esclavo", "./esclavo", &argv[2][mitad - inicio + 1], argv[2], NULL);
+        execlp("./worker", "./worker", &argv[2][mitad - inicio + 1], argv[2], NULL);
         perror("Error en execlp esclavo 2");
         exit(EXIT_FAILURE);
     }
