@@ -21,6 +21,8 @@ int main(int argc, char *argv[]) {
     int inicio = atoi(argv[1]);
     int fin = atoi(argv[2]);
     int mitad = inicio + (fin - inicio) / 2;
+    char mitad_s[sizeof(mitad)+1];
+    snprintf(mitad_s, sizeof(mitad_s), "%d", mitad);
 
     int pipe1[2], pipe2[2];
     if (pipe(pipe1) == -1 || pipe(pipe2) == -1) {
@@ -34,7 +36,7 @@ int main(int argc, char *argv[]) {
         close(pipe1[0]); // Cerrar extremo de lectura
         dup2(pipe1[1], STDOUT_FILENO);
         close(pipe1[1]);
-        execlp("./worker", "./worker", argv[1], &argv[2][mitad - inicio + 1], NULL);
+        execlp("./worker", "./worker", argv[1], mitad_s, NULL);
         perror("Error en execlp esclavo 1");
         exit(EXIT_FAILURE);
     }
@@ -45,7 +47,7 @@ int main(int argc, char *argv[]) {
         close(pipe2[0]); // Cerrar extremo de lectura
         dup2(pipe2[1], STDOUT_FILENO);
         close(pipe2[1]);
-        execlp("./worker", "./worker", &argv[2][mitad - inicio + 1], argv[2], NULL);
+        execlp("./worker", "./worker", mitad_s, argv[2], NULL);
         perror("Error en execlp esclavo 2");
         exit(EXIT_FAILURE);
     }
