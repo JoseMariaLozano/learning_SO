@@ -14,9 +14,9 @@ int es_primo(int n) {
     }
 
     if(counter > 0)
-        return 1;
+        return 0;
 
-    return 0;
+    return 1;
 }
 
 int main(int argc, char *argv[]) {
