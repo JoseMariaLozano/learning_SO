@@ -1,9 +1,3 @@
-/*
-tarea4.c
-Trabajo con llamadas al sistema de Control de Procesos "POSIX 2.10 compliant"
-Prueba el programa tal y como está. Después, elimina los comentarios (1) y
-pruébalo de nuevo.
-*/
 #include<sys/types.h>
 #include<unistd.h>
 #include<stdio.h>
