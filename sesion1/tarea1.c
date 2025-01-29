@@ -1,13 +1,3 @@
-/*
-tarea1.c
-Trabajo con llamadas al sistema del Sistema de Archivos ''POSIX 2.10 compliant''
-Probad tras la ejecución del programa: $>cat archivo y $> od -c archivo
-*/
-
-/*
-od -c ./bin/prueba.txt muestra el archivo en hexadecimal y veremos que escribe buf1 
-y luego pasa directamente a la posicion 40 y escribe el buf2
-*/
 #include<sys/types.h>
 #include<sys/stat.h>
 #include<fcntl.h>
